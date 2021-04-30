@@ -1,0 +1,24 @@
+<h1 class="text-center">Maliha Textile</h1>
+
+<table class="table table-info">
+  <thead>
+  <tr>
+    <th>Student Name</th>
+    <th>Course Title</th>
+    <th>Enroll Date</th>
+    <th>Payment Status</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let stReg of studentRegs">
+    <td>{{stReg.studentName}}</td>
+    <td>{{stReg.courseName}}</td>
+    <td>{{stReg.enrollDate | date:'dd-MM-yyyy'}}</td>
+    <td *ngIf="stReg.isPaymentComplete===true" class="text-success">Paid</td>
+    <td *ngIf="stReg.isPaymentComplete===false" class="text-danger">Unpaid</td>
+    <td><button class="btn btn-danger" (click)="deleteEnroll(stReg)"><i class="fa fa-trash"></i></button></td>
+  </tr>
+  </tbody>
+  <tfoot></tfoot>
+</table>
